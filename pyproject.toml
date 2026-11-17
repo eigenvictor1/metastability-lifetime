@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metastability-lifetime"
+version = "0.1.0"
+description = "Electroweak vacuum lifetime in the SM + singlet scalar + heavy neutrino EFT (port of 2024-11_Scan_v1.2.nb)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.22", "scipy>=1.9"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+dev = ["pytest", "sympy"]
+
+[project.scripts]
+metastability-lifetime = "metastability_lifetime.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
